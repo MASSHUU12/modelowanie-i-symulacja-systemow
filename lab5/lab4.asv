@@ -1,0 +1,28 @@
+clc
+close all
+clear
+
+out = sim('lab4');
+
+x = out.x;
+y = out.y;
+g = str2double(get_param('lab4/Subsystem', 'g'));
+
+xh = [0,1];
+yh = [8,1];
+
+for i = 1:length(x)
+    
+    xi = x(i);
+    yi = y(i);
+
+    plot(xh,yh);
+    plot(xi, yi, '.', MarkerSize=40);
+    hold on;
+    plot([0 xi], [0 yi], LineWidth=2);
+    hold off;
+
+    axis([-8, 8, -8, 8]);
+    daspect([1, 1, 1]);
+    pause(0.01);
+end

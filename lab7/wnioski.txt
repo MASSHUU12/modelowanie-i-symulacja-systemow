@@ -1,0 +1,2 @@
+Najlepszy wynik osiągany jest dla qwe = 3.98, czyli w obrębie punktu startowego.
+Im dalej tym otrzymywane wyniki są gorsze.

@@ -1,0 +1,79 @@
+% clc
+% close all
+% clear all
+
+% Z 1
+% f1 = @(x) sin(x) + cos(x);
+% f2 = @(x) exp(x) + log(x); 
+% f3 = @(x, y) sin(x) .* cos(y);
+% 
+% f1(9)
+% f1(1:2:11)
+% 
+% f2(9)
+% 
+% % Z 2
+% x = linspace(0.1, 4, 100);
+% 
+% figure
+% subplot(2, 1, 1);
+% hold on;
+% title("Lorem ipsum");
+% xlabel("x");
+% ylabel("y");
+% grid on;
+% plot(x, f1(x), "r--");
+% legend("sin(x) + cos(x)");
+% 
+% subplot(2, 1, 2);
+% title("Lorem ipsum");
+% xlabel("x");
+% ylabel("y");
+% grid on;
+% hold on;
+% plot(x, f2(x), "b-");
+% plot(2, 20, "g*", MarkerSize=12, LineWidth=1.5);
+% legend("exp(x) + log(x)", "p");
+% 
+% % z 4
+% x = linspace(-2*pi, 2*pi, 100);
+% y = x;
+% 
+% [X, Y] = meshgrid(x, y);
+% 
+% figure;
+% hold on;
+% %mesh(X, Y, f3(X, Y));
+% surf(X, Y, f3(X, Y));
+% plot3(-2*pi, 2*pi, 0, "rv", MarkerSize=12, LineWidth=4);
+% view(-30, 30);
+
+% Z 5
+x = rand(1, 9) .* (12 - 5) + 5;
+y = rand(1, 9) .* (4--3) + (-3);
+
+%function [out1, out2, ...] = name(in1, in2, ...)
+
+% function zad5(a, b)
+% plot(a, b, "rs", MarkerSize=15);
+% plot(a, b, "k--", LineWidth=3);
+% end
+% 
+% figure;
+% hold on;
+% zad5(x, y);
+
+% Z 6
+for i = 2:2:20
+    if mod(i, 4) == 0
+        disp("Podzielna przez 4");
+    else
+        disp(i);
+    end
+end
+
+j = 2;
+while j <= 20
+    j
+    j = j + 2;
+end

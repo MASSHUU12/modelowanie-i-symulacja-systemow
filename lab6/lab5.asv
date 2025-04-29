@@ -1,0 +1,40 @@
+clc
+close all
+clear
+
+out = sim('lab5');
+
+h1 = out.h1;
+h1max = max(h1) + 1;
+h2 = out.h2;
+h2max = max(h2) + 1;
+
+s1 = str2double(get_param('lab5/Subsystem', 's1'));
+s2 = str2double(get_param('lab5/Subsystem', 's2'));
+
+swy1 = str2double(get_param('lab5/Subsystem', 'swy1'));
+swy2 = str2double(get_param('lab5/Subsystem', 'swy2'));
+
+fi1 = str2double(get_param('lab5/Subsystem', 'fi1'));
+fi2 = str2double(get_param('lab5/Subsystem', 'fi2'));
+
+for i = 1:length(h1)
+    h1i = h1(i);
+    h2i = h2(i);
+
+    clf;
+    hold on;
+
+    rectangle( ...
+        'Position', [0, 0, s1, h1i], ...
+        'FaceColor', [135/255, 205/255], ...
+        'EdgeColor', 'k', ...
+        'LineWidth', 2 ...
+    );
+
+    hold off;
+    axis equal;
+    axis([-8, 8, -8, 8]);
+    drawnow;
+    pause(0.01);
+end

@@ -1,0 +1,67 @@
+% 1
+x = (-3:0.5:3);
+y = [-1.9, -3, -4.1, -2, -4.1, 0, 3, 2, -4, -3.9, 3, 4, 0.1];
+
+figure;
+hold on;
+plot(x, y, "*");
+
+% 2
+xp = 0.8;
+yp = -2;
+
+y1 = interp1(x, y, xp, "nearest");
+abs(yp - y1)
+
+y2 = interp1(x, y, xp, "linear");
+abs(yp - y2)
+
+y3 = interp1(x, y, xp, "spline");
+abs(yp - y3)
+
+y4 = interp1(x, y, xp, "cubic");
+abs(yp - y4)
+
+% Odp: najlepsza metoda: cubic
+
+% 3
+X = -3:0.01:3;
+Y1 = interp1(x, y, X, "nearest");
+plot(X, Y1, 'g');
+
+Y2 = interp1(x, y, X, "linear");
+plot(X, Y2, 'k');
+
+Y3 = interp1(x, y, X, "spline");
+plot(X, Y3, 'b');
+
+Y4 = interp1(x, y, X, "cubic");
+plot(X, Y4, 'c');
+
+legend("pkty", "nearest", "linear", "spline", "cubic");
+
+% Odp: najlepsza metoda: spline, ewentualnie cubic
+
+% 4, 1 - 12
+figure;
+
+for i = 1:1:12
+    subplot(3, 4, i);
+    hold on;
+    plot(x, y, '*');
+    p = polyfit(x, y, i);
+    Y = polyval(p, X);
+    plot(X, Y);
+    title(i);
+end
+
+% Odp: stopień wielomianu: 9
+
+% 5
+n = 9;
+p = polyfit(x, y, 9);
+ypp = polyval(p, xp);
+abs(ypp - yp)
+
+% Odp: wynik (0.7322) różni się znacząco od uzyskanego w wyniku
+% interpolacji (0.2008), jest gorzej.
